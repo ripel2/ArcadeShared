@@ -20,7 +20,6 @@ namespace acd {
              * @brief Destructor of the text block
             */
             virtual ~ITextBlock() = 0;
-            
             /**
              * @brief Set the position of the text block
             */
