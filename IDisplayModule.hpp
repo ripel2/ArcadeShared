@@ -108,5 +108,10 @@ namespace acd {
              * @brief Display the display module
             */
             virtual void display() = 0;
+            /**
+             * @brief Get latest keyboard input
+             * @return The latest keyboard input
+             */
+            virtual Input getLatestKeyboardInput() = 0;
     };
 }

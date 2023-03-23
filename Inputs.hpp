@@ -9,6 +9,7 @@
 
 namespace acd {
     enum Input {
+        NONE,
         KEY_UP,
         KEY_DOWN,
         KEY_LEFT,
