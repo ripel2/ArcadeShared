@@ -30,7 +30,6 @@ namespace acd {
              * @brief Stop the display module
             */
             virtual void stop() = 0;
-
             /**
              * @brief Set the grid size of the display module
              * @param lines The number of lines
@@ -80,7 +79,6 @@ namespace acd {
              * @param col The column of the block
             */
             virtual void clearBlock(std::size_t line, std::size_t col) = 0;
-
             /**
              * @brief Adds a text block to the display module
              * @param name The name of the text block

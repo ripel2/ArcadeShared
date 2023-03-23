@@ -13,10 +13,9 @@ namespace acd {
     class IBlock {
         public:
             /**
-             * @brief Destructor of the block 
+             * @brief Destructor of the block
             */
             virtual ~IBlock() = 0;
-
             /**
              * @brief Set the color of the block foreground
             */
