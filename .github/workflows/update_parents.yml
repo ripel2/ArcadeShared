@@ -1,0 +1,55 @@
+name: update-parents
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update-parent1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositories
+        uses: actions/checkout@v3
+        with:
+          repository: TurpaultM/Arcade
+          token: ${{ secrets.TOKEN_PARENT1 }}
+          submodules: true
+
+      - name: Pull and update submodules recursively
+        run: |
+          git submodule update --init --recursive
+          git submodule update --recursive --remote
+
+      - name: Commit and push
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions - update-parent"
+          git add --all
+          git commit -m "Update submodules" || echo "Nothing to commit"
+          git push
+
+  update-parent2:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositories
+        uses: actions/checkout@v3
+        with:
+          repository: ripel2/OOP_arcade_2023
+          token: ${{ secrets.TOKEN_PARENT2 }}
+          submodules: true
+
+      - name: Pull and update submodules recursively
+        run: |
+          git submodule update --init --recursive
+          git submodule update --recursive --remote
+
+      - name: Commit and push
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions - update-parent"
+          git add --all
+          git commit -m "Update submodules" || echo "Nothing to commit"
+          git push
