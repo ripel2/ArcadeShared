@@ -13,6 +13,7 @@
 
 #include "IBlock.hpp"
 #include "ITextBlock.hpp"
+#include "Inputs.hpp"
 
 namespace acd {
     class IDisplayModule {
@@ -100,5 +101,14 @@ namespace acd {
              * @brief Removes all the text blocks of the display module
             */
             virtual void removeTextBlocks() = 0;
+            /**
+             * @brief Get the input of the display module
+             * @return The input of the display module
+            */
+            virtual Input getInput() = 0;
+            /**
+             * @brief Display the display module
+            */
+            virtual void display() = 0;
     };
 }
