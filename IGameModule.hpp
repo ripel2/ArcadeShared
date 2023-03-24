@@ -19,6 +19,10 @@ namespace acd {
             */
             virtual void init() = 0;
             /**
+             * @brief Pause the game module
+            */
+            virtual void pause() = 0;
+            /**
              * @brief Stop the game module
             */
             virtual void stop() = 0;

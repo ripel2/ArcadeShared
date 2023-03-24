@@ -52,4 +52,3 @@ namespace acd {
             std::unique_ptr<T> (*_entrypoint)(void);
     };
 }
-

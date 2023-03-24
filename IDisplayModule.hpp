@@ -112,6 +112,6 @@ namespace acd {
              * @brief Get latest keyboard input
              * @return The latest keyboard input
              */
-            virtual Input getLatestKeyboardInput() = 0;
+            virtual Input getLatestKeyboardInput() const = 0;
     };
 }
