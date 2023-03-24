@@ -2,58 +2,72 @@
 ** EPITECH PROJECT, 2023
 ** ArcadeShared [WSL : Ubuntu-20.04]
 ** File description:
-** IBlock
+** Block
 */
 
 #pragma once
 
+#include <string>
+
 #include "Colors.hpp"
 
 namespace acd {
-    class IBlock {
+    class Block {
         public:
+            /**
+             * @brief Construct a new Block object
+             * @param foreColor The color of the block foreground
+             * @param backColor The color of the block background
+             * @param text The text of the block (for terminal display)
+             * @param texturePath The path of the texture to display (for graphical display)
+            */
+            Block(Color foreColor = Color::WHITE, Color backColor = Color::BLACK, const char *text = "  ", const std::string &texturePath = "");
             /**
              * @brief Destructor of the block
             */
-            virtual ~IBlock() = 0;
+            ~Block() = default;
             /**
              * @brief Set the color of the block foreground
             */
-            virtual void setForeColor(Color color) = 0;
+            void setForeColor(Color color);
             /**
              * @brief Get the color of the block foreground
              * @return The color of the block
             */
-            virtual Color getForeColor() const = 0;
+            Color getForeColor() const;
             /**
              * @brief Set the color of the block background
             */
-            virtual void setBackColor(Color color) = 0;
+            void setBackColor(Color color);
             /**
              * @brief Get the color of the block background
              * @return The color of the block
             */
-            virtual Color getBackColor() const = 0;
+            Color getBackColor() const;
             /**
              * @brief Set the text of the block (for terminal display)
             */
-            virtual void setText(const char *text) = 0;
+            void setText(const char *text);
             /**
              * @brief Get the text of the block (for terminal display)
              * @return The text of the block
             */
-            virtual const char *getText() const = 0;
+            const char *getText() const;
             /**
              * @brief Set the path of the texture to display (for graphical display)
              * @param path The path of the texture
             */
-            virtual void setTexturePath(const char *path) = 0;
+            void setTexturePath(const std::string &path);
             /**
              * @brief Get the path of the texture to display (for graphical display)
              * @return The path of the texture
             */
-            virtual const char *getTexturePath() const = 0;
+            const std::string &getTexturePath() const;
         protected:
         private:
+            Color _foreColor;
+            Color _backColor;
+            const char _text[2];
+            std::string _texturePath;
     };
 }
