@@ -16,6 +16,10 @@ namespace acd {
     template<typename T>
     class DLLoader {
         public:
+            /**
+             * @brief Construct a new DLLoader object
+             * @param path
+             */
             DLLoader(const std::string &path)
             : _handle(dlopen(path.c_str(), RTLD_LAZY)) {
             if (!_handle) {
@@ -26,8 +30,15 @@ namespace acd {
                 dlclose(_handle);
                 throw Error("Cannot load symbol entrypoint: " + std::string(dlerror()));
             }
-        }
+            }
+            /**
+             * @brief Destroy the DLLoader object
+             */
             ~DLLoader() {dlclose(_handle);};
+            /**
+             * @brief Get the instance object
+             * @return std::unique_ptr<T>
+             */
             std::unique_ptr<T> getInstance() const {return _entrypoint();};
             class Error : public std::exception {
                 public:
