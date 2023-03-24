@@ -12,7 +12,7 @@
 #include <string>
 
 #include "Block.hpp"
-#include "ITextBlock.hpp"
+#include "TextBlock.hpp"
 #include "Inputs.hpp"
 
 namespace acd {
@@ -84,12 +84,12 @@ namespace acd {
              * @param name The name of the text block
              * @param textBlock The text block to add
             */
-            virtual void addTextBlock(const std::string &name, ITextBlock &textBlock) = 0;
+            virtual void addTextBlock(const std::string &name, TextBlock &textBlock) = 0;
             /**
              * @brief Gets a text block from the display module
              * @param name The name of the text block to get
             */
-            virtual ITextBlock &getTextBlock(const std::string &name) = 0;
+            virtual TextBlock &getTextBlock(const std::string &name) = 0;
             /**
              * @brief Removes a text block from the display module
              * @param name The name of the text block to remove
