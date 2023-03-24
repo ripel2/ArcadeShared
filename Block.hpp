@@ -25,7 +25,7 @@ namespace acd {
             /**
              * @brief Destructor of the block
             */
-            ~Block() = default;
+            ~Block();
             /**
              * @brief Set the color of the block foreground
             */

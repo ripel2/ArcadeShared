@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2023
 ** ArcadeShared [WSL : Ubuntu]
 ** File description:
-** ITextBlock
+** TextBlock
 */
 
 #pragma once
@@ -14,52 +14,66 @@
 #include "Colors.hpp"
 
 namespace acd {
-    class ITextBlock {
+    class TextBlock {
         public:
+            /**
+             * @brief Construct a new Text Block object
+             * @param line The line of the text block
+             * @param col The column of the text block
+             * @param text The text of the text block
+             * @param foreColor The color of the text block foreground
+             * @param backColor The color of the text block background
+            */
+            TextBlock(std::size_t line, std::size_t col, const std::string &text, Color foreColor = Color::WHITE, Color backColor = Color::BLACK);
             /**
              * @brief Destructor of the text block
             */
-            virtual ~ITextBlock() = 0;
+            ~TextBlock();
             /**
              * @brief Set the position of the text block
             */
-            virtual void setPosition(std::size_t line, std::size_t col) = 0;
+            void setPosition(std::size_t line, std::size_t col);
             /**
              * @brief Get the position of the text block
              * @return A pair containing the line and the column
             */
-            virtual std::pair<std::size_t, std::size_t> getPosition() const = 0;
+            std::pair<std::size_t, std::size_t> getPosition() const;
             /**
              * @brief Set the text of the text block
              * @param text The text of the text block
             */
-            virtual void setText(const std::string &text) = 0;
+            void setText(const std::string &text);
             /**
              * @brief Get the text of the text block
              * @return The text of the text block
             */
-            virtual std::string getText() const = 0;
+            std::string getText() const;
             /**
              * @brief Set the color of the text block foreground
              * @param color The color of the text block foreground
             */
-            virtual void setForeColor(Color color) = 0;
+            void setForeColor(Color color);
             /**
              * @brief Get the color of the text block foreground
              * @return The color of the text block foreground
             */
-            virtual Color getForeColor() const = 0;
+            Color getForeColor() const;
             /**
              * @brief Set the color of the text block background
              * @param color The color of the text block background
             */
-            virtual void setBackColor(Color color) = 0;
+            void setBackColor(Color color);
             /**
              * @brief Get the color of the text block background
              * @return The color of the text block background
             */
-            virtual Color getBackColor() const = 0;
+            Color getBackColor() const;
         protected:
         private:
+            std::size_t _line;
+            std::size_t _col;
+            std::string _text;
+            Color _foreColor;
+            Color _backColor;
     };
 }
