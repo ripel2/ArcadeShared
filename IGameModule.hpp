@@ -53,9 +53,14 @@ namespace acd {
             */
             virtual void displayGame(std::unique_ptr<IDisplayModule> &displayModule) = 0;
             /**
-             * @brief Hide the game module
-            */
-            virtual void hideGame() = 0;
+             * @brief Get the Score object
+             */
+            virtual void getScore() = 0;
+            /**
+             * @brief Set the Score object
+             * @param score
+             */
+            virtual void setScore(std::size_t score) = 0;
         protected:
         private:
     };
