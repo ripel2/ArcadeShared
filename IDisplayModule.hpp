@@ -10,6 +10,7 @@
 #include <cstddef>
 #include <utility>
 #include <string>
+#include <vector>
 
 #include "Block.hpp"
 #include "TextBlock.hpp"
@@ -45,12 +46,7 @@ namespace acd {
              * @brief Set the list of blocks of the display module
              * @param blocks The list of blocks
             */
-            virtual void setBlocks(Block **&blocks) = 0;
-            /**
-             * @brief Get the list of blocks of the display module
-             * @return The list of blocks
-            */
-            virtual Block **&getBlocks() = 0;
+            virtual std::vector<std::vector<std::reference_wrapper<Block>>> &getBlocks() = 0;
             /**
              * @brief Set all the blocks of the display module to black
             */

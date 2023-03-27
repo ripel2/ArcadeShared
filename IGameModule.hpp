@@ -7,7 +7,17 @@
 
 #pragma once
 
+#include <memory>
+
+#include "IDisplayModule.hpp"
+
 namespace acd {
+    typedef enum updateType_e {
+        NONE,
+        NEXTLIB,
+        NEXTGAME,
+    } updateType_t;
+
     class IGameModule {
         public:
             /**
@@ -23,6 +33,10 @@ namespace acd {
             */
             virtual void pause() = 0;
             /**
+             * @brief Play the game module
+             */
+            virtual void play() = 0;
+            /**
              * @brief Stop the game module
             */
             virtual void stop() = 0;
@@ -33,19 +47,11 @@ namespace acd {
             /**
              * @brief Update the game module
             */
-            virtual void update() = 0;
+            virtual updateType_t update(Input latestInput) = 0;
             /**
              * @brief Display the game module
             */
-            virtual void displayMenu() = 0;
-            /**
-             * @brief Hide the game module
-            */
-            virtual void hideMenu() = 0;
-            /**
-             * @brief Display the game module
-            */
-            virtual void displayGame() = 0;
+            virtual void displayGame(std::unique_ptr<IDisplayModule> &displayModule) = 0;
             /**
              * @brief Hide the game module
             */
