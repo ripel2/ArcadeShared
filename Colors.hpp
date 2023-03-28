@@ -5,6 +5,8 @@
 ** Colors
 */
 
+#pragma once
+
 namespace acd {
     enum Color {
         BLACK,
