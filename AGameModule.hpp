@@ -2,39 +2,24 @@
 ** EPITECH PROJECT, 2023
 ** ArcadeShared [WSL : Ubuntu]
 ** File description:
-** IGameModule
+** AGameModule
 */
 
 #pragma once
 
-#include <ctime>
-#include <map>
-#include <string>
-
-#include "GameMap.hpp"
-#include "Input.hpp"
-#include "IGraphicModule.hpp"
+#include "IGameModule.hpp"
 
 namespace acd {
-    typedef enum updateType_e {
-        NONE,
-        PREVGRAPHIC,
-        NEXTGRAPHIC,
-        PREVGAME,
-        NEXTGAME,
-        SFML,
-        NCURSES,
-        SDL,
-        NIBBLER,
-        SNAKE
-    } updateType_t;
-
-    class IGameModule {
+    class AGameModule : public IGameModule {
         public:
             /**
-             * @brief Destroy the IGameModule object
+             * @brief Construct a new AGameModule object
              */
-            virtual ~IGameModule() = default;
+            AGameModule();
+            /**
+             * @brief Destroy the AGameModule object
+             */
+            virtual ~AGameModule() = default;
 
             /**
              * @brief Update the game
@@ -59,76 +44,83 @@ namespace acd {
              * @brief Set the Map object
              * @param map the map
              */
-            virtual void setMap(const GameMap &map) = 0;
+            void setMap(const GameMap &map) override final;
             /**
              * @brief Set the Score object
              * @param score the score
              */
-            virtual void setScore(const std::size_t &score) = 0;
+            void setScore(std::size_t score) override final;
             /**
              * @brief Set the Clock object
              * @param clock the clock
              */
-            virtual void setClock(const std::clock_t &clock) = 0;
+            void setClock(std::clock_t clock) override final;
             /**
              * @brief Set the Times object
              * @param times the times
              */
-            virtual void setTimes(const std::map<std::string, float> &times) = 0;
+            void setTimes(const std::map<std::string, float> &times) override final;
             /**
              * @brief Set the Time object
              * @param name the name of the time
              * @param time the time
              */
-            virtual void setTime(const std::string &name, const float &time) = 0;
+            void setTime(const std::string &name, const float &time) override final;
             /**
              * @brief Set the Entities object
              * @param entities the entities
              */
-            virtual void setEntities(const std::map<std::string, std::vector<std::pair<std::size_t, std::size_t>>> &entities) = 0;
+            void setEntities(const std::map<std::string, std::vector<std::pair<std::size_t, std::size_t>>> &entities) override final;
             /**
              * @brief Set the Entity object
              * @param name the name of the entity
              * @param entity the entity
              */
-            virtual void setEntity(const std::string &name, const std::vector<std::pair<std::size_t, std::size_t>> &entity) = 0;
+            void setEntity(const std::string &name, const std::pair<std::size_t, std::size_t> &entity) override final;
 
             /**
              * @brief Get the Map object
              * @return const GameMap& the map
              */
-            virtual const GameMap &getMap() const = 0;
+            const GameMap &getMap() const override final;
             /**
              * @brief Get the Score object
-             * @return const std::size_t& the score
+             * @return std::size_t the score
              */
-            virtual const std::size_t &getScore() const = 0;
+            std::size_t getScore() const override final;
             /**
              * @brief Get the Clock object
-             * @return const std::clock_t& the clock
+             * @return std::clock_t the clock
              */
-            virtual const std::clock_t &getClock() const = 0;
+            std::clock_t getClock() const override final;
             /**
              * @brief Get the Times object
              * @return const std::map<std::string, float>& the times
              */
-            virtual const std::map<std::string, float> &getTimes() const = 0;
+            const std::map<std::string, float> &getTimes() const override final;
             /**
              * @brief Get the Time object
              * @param name the name of the time
-             * @return const float& the time
+             * @return float the time
              */
-            virtual const float &getTime(const std::string &name) const = 0;
+            float getTime(const std::string &name) const override final;
             /**
              * @brief Get the Entities object
              * @return const std::map<std::string, std::vector<std::pair<std::size_t, std::size_t>>>& the entities
              */
-            virtual const std::map<std::string, std::vector<std::pair<std::size_t, std::size_t>>> &getEntities() const = 0;
+            const std::map<std::string, std::vector<std::pair<std::size_t, std::size_t>>> &getEntities() const override final;
             /**
              * @brief Get the Entity object
              * @param name the name of the entity
              * @return const std::vector<std::pair<std::size_t, std::size_t>>& the entity
              */
-            virtual const std::vector<std::pair<std::size_t, std::size_t>> &getEntity(const std::string &name) const = 0;
-    }
+            const std::vector<std::pair<std::size_t, std::size_t>> &getEntity(const std::string &name) const override final;
+
+        private:
+            GameMap _map;
+            std::size_t _score;
+            std::clock_t _clock;
+            std::map<std::string, float> _times;
+            std::map<std::string, std::vector<std::pair<std::size_t, std::size_t>>> _entities;
+    };
 }

@@ -19,13 +19,14 @@ namespace acd {
             /**
              * @brief Construct a new DLLoader object
              * @param path
+             * @param entrypoint
              */
-            DLLoader(const std::string &path)
+            DLLoader(const std::string &path, const std::string &entrypoint)
             : _handle(dlopen(path.c_str(), RTLD_LAZY)) {
             if (!_handle) {
                 throw Error("Cannot load library: " + std::string(dlerror()));
             }
-            _entrypoint = reinterpret_cast<std::unique_ptr<T> (*)()>(dlsym(_handle, "entrypoint"));
+            _entrypoint = reinterpret_cast<std::unique_ptr<T> (*)()>(dlsym(_handle, entrypoint.c_str()));
             if (!_entrypoint) {
                 dlclose(_handle);
                 throw Error("Cannot load symbol entrypoint: " + std::string(dlerror()));
