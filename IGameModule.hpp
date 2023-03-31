@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <ctime>
+#include <chrono>
 #include <map>
 #include <string>
 
@@ -69,7 +69,7 @@ namespace acd {
              * @brief Set the Clock object
              * @param clock the clock
              */
-            virtual void setClock(const std::clock_t &clock) = 0;
+            virtual void setClock(const std::chrono &clock) = 0;
             /**
              * @brief Set the Times object
              * @param times the times
@@ -105,9 +105,9 @@ namespace acd {
             virtual const std::size_t &getScore() const = 0;
             /**
              * @brief Get the Clock object
-             * @return const std::clock_t& the clock
+             * @return const std::chrono& the clock
              */
-            virtual const std::clock_t &getClock() const = 0;
+            virtual const std::chrono &getClock() const = 0;
             /**
              * @brief Get the Times object
              * @return const std::map<std::string, float>& the times

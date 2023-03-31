@@ -54,7 +54,7 @@ namespace acd {
              * @brief Set the Clock object
              * @param clock the clock
              */
-            void setClock(std::clock_t clock) override final;
+            void setClock(std::chrono clock) override final;
             /**
              * @brief Set the Times object
              * @param times the times
@@ -90,9 +90,9 @@ namespace acd {
             std::size_t getScore() const override final;
             /**
              * @brief Get the Clock object
-             * @return std::clock_t the clock
+             * @return std::chrono the clock
              */
-            std::clock_t getClock() const override final;
+            std::chrono getClock() const override final;
             /**
              * @brief Get the Times object
              * @return const std::map<std::string, float>& the times
@@ -119,7 +119,7 @@ namespace acd {
         private:
             GameMap _map;
             std::size_t _score;
-            std::clock_t _clock;
+            std::chrono::high_resolution_clock _clock;
             std::map<std::string, float> _times;
             std::map<std::string, std::vector<std::pair<std::size_t, std::size_t>>> _entities;
     };
