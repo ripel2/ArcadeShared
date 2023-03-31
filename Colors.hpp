@@ -9,6 +9,7 @@
 
 namespace acd {
     enum Color {
+        NONE,
         BLACK,
         BLUE,
         GREEN,

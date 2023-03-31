@@ -60,17 +60,17 @@ namespace acd {
              * @brief Get the foreground color Ncurses
              * @return the foreground color
              */
-            Color getForegroundColorNcurses() override {}
+            Color getForegroundColorNcurses() override { return acd::NONE; }
             /**
              * @brief Get the background color Ncurses
              * @return the background color
              */
-            Color getBackgroundColorNcurses() override {}
+            Color getBackgroundColorNcurses() override { return acd::NONE; }
             /**
              * @brief Get the characters Ncurses
              * @return the characters
              */
-            char *getCharactersNcurses() override {}
+            char *getCharactersNcurses() override { return NULL; }
         protected:
             /**
              * @brief Construct a new ABlock object
