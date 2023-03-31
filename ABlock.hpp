@@ -40,22 +40,22 @@ namespace acd {
              * @brief Get the foreground texture SFML
              * @return the foreground texture
              */
-            unique_ptr<sf::Texture> getForegroundTextureSFML() override { return nullptr; }
+            std::unique_ptr<sf::Texture> getForegroundTextureSFML() override { return nullptr; }
             /**
              * @brief Get the background texture SFML
              * @return the background texture
              */
-            unique_ptr<sf::Texture> getBackgroundTextureSFML() override { return nullptr; }
+            std::unique_ptr<sf::Texture> getBackgroundTextureSFML() override { return nullptr; }
             /**
              * @brief Get the foreground texture SDL
              * @return the foreground texture
              */
-            unique_ptr<SDL_Texture> getForegroundTextureSDL() override { return nullptr; }
+            std::unique_ptr<SDL_Texture> getForegroundTextureSDL() override { return nullptr; }
             /**
              * @brief Get the background texture SDL
              * @return the background texture
              */
-            unique_ptr<SDL_Texture> getBackgroundTextureSDL() override { return nullptr; }
+            std::unique_ptr<SDL_Texture> getBackgroundTextureSDL() override { return nullptr; }
             /**
              * @brief Get the foreground color Ncurses
              * @return the foreground color
