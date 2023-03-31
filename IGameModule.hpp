@@ -66,21 +66,16 @@ namespace acd {
              */
             virtual void setScore(const std::size_t &score) = 0;
             /**
-             * @brief Set the Clock object
-             * @param clock the clock
-             */
-            virtual void setClock(const std::chrono &clock) = 0;
-            /**
              * @brief Set the Times object
              * @param times the times
              */
-            virtual void setTimes(const std::map<std::string, float> &times) = 0;
+            virtual void setTimes(const std::map<std::string, double> &times) = 0;
             /**
              * @brief Set the Time object
              * @param name the name of the time
              * @param time the time
              */
-            virtual void setTime(const std::string &name, const float &time) = 0;
+            virtual void setTime(const std::string &name, const double &time) = 0;
             /**
              * @brief Set the Entities object
              * @param entities the entities
@@ -104,21 +99,16 @@ namespace acd {
              */
             virtual const std::size_t &getScore() const = 0;
             /**
-             * @brief Get the Clock object
-             * @return const std::chrono& the clock
-             */
-            virtual const std::chrono &getClock() const = 0;
-            /**
              * @brief Get the Times object
-             * @return const std::map<std::string, float>& the times
+             * @return const std::map<std::string, double>& the times
              */
-            virtual const std::map<std::string, float> &getTimes() const = 0;
+            virtual const std::map<std::string, double> &getTimes() const = 0;
             /**
              * @brief Get the Time object
              * @param name the name of the time
-             * @return const float& the time
+             * @return const double& the time
              */
-            virtual const float &getTime(const std::string &name) const = 0;
+            virtual const double &getTime(const std::string &name) const = 0;
             /**
              * @brief Get the Entities object
              * @return const std::map<std::string, std::vector<std::pair<std::size_t, std::size_t>>>& the entities

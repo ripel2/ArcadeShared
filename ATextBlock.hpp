@@ -55,7 +55,7 @@ namespace acd {
              * @brief Get the text of the block
              * @return the text
              */
-            std::string &getText() const override final;
+            const std::string &getText() const override final;
             /**
              * @brief Get the text position
              * @return the text position

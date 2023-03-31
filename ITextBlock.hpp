@@ -11,6 +11,7 @@
 #include <SFML/Graphics.hpp>
 #include <ncurses.h>
 #include <string>
+#include <functional>
 
 #include "Colors.hpp"
 
@@ -60,7 +61,7 @@ namespace acd {
              * @brief Get the text of the block
              * @return the text
              */
-            virtual std::string &getText() const = 0;
+            virtual const std::string &getText() const = 0;
             /**
              * @brief Get the text position
              * @return the position

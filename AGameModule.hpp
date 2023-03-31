@@ -51,21 +51,16 @@ namespace acd {
              */
             void setScore(std::size_t score) override final;
             /**
-             * @brief Set the Clock object
-             * @param clock the clock
-             */
-            void setClock(std::chrono clock) override final;
-            /**
              * @brief Set the Times object
              * @param times the times
              */
-            void setTimes(const std::map<std::string, float> &times) override final;
+            void setTimes(const std::map<std::string, double> &times) override final;
             /**
              * @brief Set the Time object
              * @param name the name of the time
              * @param time the time
              */
-            void setTime(const std::string &name, const float &time) override final;
+            void setTime(const std::string &name, const double &time) override final;
             /**
              * @brief Set the Entities object
              * @param entities the entities
@@ -89,21 +84,16 @@ namespace acd {
              */
             std::size_t getScore() const override final;
             /**
-             * @brief Get the Clock object
-             * @return std::chrono the clock
-             */
-            std::chrono getClock() const override final;
-            /**
              * @brief Get the Times object
-             * @return const std::map<std::string, float>& the times
+             * @return const std::map<std::string, double>& the times
              */
-            const std::map<std::string, float> &getTimes() const override final;
+            const std::map<std::string, double> &getTimes() const override final;
             /**
              * @brief Get the Time object
              * @param name the name of the time
-             * @return float the time
+             * @return double the time
              */
-            float getTime(const std::string &name) const override final;
+            double getTime(const std::string &name) const override final;
             /**
              * @brief Get the Entities object
              * @return const std::map<std::string, std::vector<std::pair<std::size_t, std::size_t>>>& the entities
@@ -119,8 +109,7 @@ namespace acd {
         private:
             GameMap _map;
             std::size_t _score;
-            std::chrono::high_resolution_clock _clock;
-            std::map<std::string, float> _times;
+            std::map<std::string, double> _times;
             std::map<std::string, std::vector<std::pair<std::size_t, std::size_t>>> _entities;
     };
 }

@@ -34,7 +34,7 @@ namespace acd {
              * @brief Get the Latest Input object
              * @return Input the latest input
              */
-            Input getLatestInput() override final;
+            Input getLatestInput() const override final;
 
             /**
              * @brief Set the Ref Blocks object
