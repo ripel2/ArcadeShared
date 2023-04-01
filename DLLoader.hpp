@@ -12,6 +12,15 @@
 #include <memory>
 #include <exception>
 
+#include "IGraphicModule.hpp"
+#include "IGameModule.hpp"
+#include "AGraphicModule.hpp"
+#include "AGameModule.hpp"
+#include "IBlock.hpp"
+#include "ITextBlock.hpp"
+#include "ATextBlock.hpp"
+#include "ABlock.hpp"
+
 namespace acd {
     template<typename T>
     class DLLoader {
@@ -24,12 +33,12 @@ namespace acd {
             DLLoader(const std::string &path, const std::string &entrypoint)
             : _handle(dlopen(path.c_str(), RTLD_LAZY)) {
             if (!_handle) {
-                throw Error("Cannot load library: " + std::string(dlerror()));
+                throw Error("cannot load library: " + std::string(dlerror()));
             }
             _entrypoint = reinterpret_cast<std::unique_ptr<T> (*)()>(dlsym(_handle, entrypoint.c_str()));
             if (!_entrypoint) {
                 dlclose(_handle);
-                throw Error("Cannot load symbol entrypoint: " + std::string(dlerror()));
+                throw Error("cannot load symbol entrypoint: " + std::string(dlerror()));
             }
             }
             /**

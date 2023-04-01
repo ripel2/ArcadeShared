@@ -10,6 +10,8 @@
 #include "IBlock.hpp"
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SFML/Graphics.hpp>
 
 namespace acd {
     class ABlock : public IBlock {
@@ -44,8 +46,8 @@ namespace acd {
             {
                 _foregroundTextureSDL = std::make_unique<SDL_Texture *>();
                 _backgroundTextureSDL = std::make_unique<SDL_Texture *>();
-                *_foregroundTextureSDL = IMG_LoadTexture(IMG_Init(IMG_INIT_PNG), foregroundPath.c_str());
-                *_backgroundTextureSDL = IMG_LoadTexture(IMG_Init(IMG_INIT_PNG), backgroundPath.c_str());
+                *_foregroundTextureSDL = nullptr;
+                *_backgroundTextureSDL = nullptr;
             }
             /**
              * @brief Set the colors and the character of the block
