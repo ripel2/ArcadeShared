@@ -10,11 +10,11 @@
 namespace acd {
     enum Input {
         KEY_NONE,
-        KEY_UP,
-        KEY_DOWN,
-        KEY_LEFT,
-        KEY_RIGHT,
-        KEY_ENTER,
+        KEY__UP,
+        KEY__DOWN,
+        KEY__LEFT,
+        KEY__RIGHT,
+        KEY__ENTER,
         KEY_ESCAPE,
         KEY_SPACE,
         KEY_A,
