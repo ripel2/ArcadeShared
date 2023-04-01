@@ -57,7 +57,7 @@ namespace acd {
              * @brief Get the grid
              * @return std::vector<std::vector<std::reference_wrapper<IBlock>>> & the grid
              */
-            std::vector<std::vector<std::reference_wrapper<IBlock>>> &getGrid() const;
+            const std::vector<std::vector<std::reference_wrapper<IBlock>>> &getGrid() const;
             /**
              * @brief Get one block of the grid
              * @param line the line
@@ -75,7 +75,7 @@ namespace acd {
              * @brief Get the grid size
              * @return std::pair<std::size_t, std::size_t> & the size
              */
-            std::pair<std::size_t, std::size_t> &getSize() const;
+            std::pair<std::size_t, std::size_t> getSize() const;
 
             /**
              * @brief Remove one text

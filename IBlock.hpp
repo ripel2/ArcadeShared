@@ -55,12 +55,12 @@ namespace acd {
              * @brief Get the foreground texture SDL
              * @return the foreground texture
              */
-            virtual std::unique_ptr<SDL_Texture> getForegroundTextureSDL() = 0;
+            virtual std::unique_ptr<SDL_Texture *> getForegroundTextureSDL() = 0;
             /**
              * @brief Get the background texture SDL
              * @return the background texture
              */
-            virtual std::unique_ptr<SDL_Texture> getBackgroundTextureSDL() = 0;
+            virtual std::unique_ptr<SDL_Texture *> getBackgroundTextureSDL() = 0;
             /**
              * @brief Get the foreground color Ncurses
              * @return the foreground color

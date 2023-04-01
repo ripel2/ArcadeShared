@@ -9,9 +9,15 @@
 
 #include "IBlock.hpp"
 
+#include <SDL2/SDL.h>
+
 namespace acd {
     class ABlock : public IBlock {
         public:
+            /**
+             * @brief Construct a new ABlock object
+             */
+            ABlock() = default;
             /**
              * @brief Destroy the ABlock object
              */
@@ -50,12 +56,12 @@ namespace acd {
              * @brief Get the foreground texture SDL
              * @return the foreground texture
              */
-            std::unique_ptr<SDL_Texture> getForegroundTextureSDL() override { return nullptr; }
+            std::unique_ptr<SDL_Texture *> getForegroundTextureSDL() override { return nullptr; }
             /**
              * @brief Get the background texture SDL
              * @return the background texture
              */
-            std::unique_ptr<SDL_Texture> getBackgroundTextureSDL() override { return nullptr; }
+            std::unique_ptr<SDL_Texture *> getBackgroundTextureSDL() override { return nullptr; }
             /**
              * @brief Get the foreground color Ncurses
              * @return the foreground color
@@ -71,10 +77,5 @@ namespace acd {
              * @return the characters
              */
             char *getCharactersNcurses() override { return NULL; }
-        protected:
-            /**
-             * @brief Construct a new ABlock object
-             */
-            ABlock() = default;
     };
 }

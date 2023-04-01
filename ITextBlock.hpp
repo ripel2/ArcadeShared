@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include <SDL2/SDL.h>
 #include <SFML/Graphics.hpp>
+#include <SDL2/SDL.h>
 #include <ncurses.h>
 #include <string>
 #include <functional>
@@ -40,18 +40,35 @@ namespace acd {
              */
             virtual void setTextPosition(std::size_t line, std::size_t column) = 0;
             /**
-             * @brief Init the text SFML
-             * @param fontPath the path of the font
-             * @param fontSize the font size
+             * @brief Get the text SFML
+             * @return the text SFML
              */
-            virtual void initTextSFML(const std::string &fontPath, std::size_t fontSize) = 0;
+            virtual const sf::Text &getTextSFML() const = 0;
+            /**
+             * @brief Get the text SDL
+             * @return the text SDL
+             */
+            virtual SDL_Texture *getTextSDL() const = 0;
+            /**
+             * @brief Init the text SFML
+             * @param text the text
+             */
+            virtual void initTextSFML(sf::Text text) = 0;
             /**
              * @brief Init the text SDL
-             * @param fontPath the path of the font
-             * @param fontSize the font size
+             * @param text the text
              */
-            virtual void initTextSDL(const std::string &fontPath, std::size_t fontSize) = 0;
-
+            virtual void initTextSDL(SDL_Texture *text) = 0;
+            /**
+             * @brief Set the text SFML
+             * @param text the text
+            */
+            virtual void setTextSFML(sf::Text text) = 0;
+            /**
+             * @brief Set the text SDL
+             * @param text the text
+            */
+            virtual void setTextSDL(SDL_Texture *text) = 0;
             /**
             * @brief Get the color of the block
             * @return the color
@@ -67,15 +84,5 @@ namespace acd {
              * @return the position
              */
             virtual std::pair<std::size_t, std::size_t> getTextPosition() const = 0;
-            /**
-             * @brief Get the text SFML
-             * @return the text
-             */
-            virtual sf::Text &getTextSFML() const = 0;
-            /**
-             * @brief Get the text SDL
-             * @return the text
-             */
-            virtual SDL_Texture &getTextSDL() const = 0;
     };
 }
