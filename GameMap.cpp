@@ -23,12 +23,7 @@ void acd::GameMap::setBlock(std::size_t line, std::size_t column, const IBlock &
     _grid.at(line).at(column).get() = block;
 }
 
-void acd::GameMap::setTexts(const std::map<std::string, ITextBlock> &texts)
-{
-    _texts = texts;
-}
-
 void acd::GameMap::setText(const std::string &name, const ITextBlock &text)
 {
-    _texts[name] = text;
+    _texts.at(name).get() = text;
 }

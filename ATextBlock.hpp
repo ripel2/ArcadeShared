@@ -21,56 +21,56 @@ namespace acd {
              * @brief Set the color of the block
              * @param color the color
              */
-            void setColor(Color color) override final;
+            void setColor(Color color) override;
             /**
              * @brief Set the text of the block
              * @param text the text
              */
-            void setText(const std::string &text) override final;
+            void setText(const std::string &text) override;
             /**
              * @brief Set the text position
              * @param line the line
              * @param column the column
              */
-            void setTextPosition(std::size_t line, std::size_t column) override final;
+            void setTextPosition(std::size_t line, std::size_t column) override;
             /**
              * @brief Init the text SFML
              * @param fontPath the path of the font
              * @param fontSize the font size
              */
-            virtual void initTextSFML(const std::string &fontPath, std::size_t fontSize) override {};
+            virtual void initTextSFML(const std::string &fontPath, std::size_t fontSize) override = 0;
             /**
              * @brief Init the text SDL
              * @param fontPath the path of the font
              * @param fontSize the font size
              */
-            virtual void initTextSDL(const std::string &fontPath, std::size_t fontSize) override {};
+            virtual void initTextSDL(const std::string &fontPath, std::size_t fontSize) override = 0;
 
             /**
              * @brief Get the color of the block
              * @return the color
              */
-            Color getColor() const override final;
+            Color getColor() const override;
             /**
              * @brief Get the text of the block
              * @return the text
              */
-            const std::string &getText() const override final;
+            const std::string &getText() const override;
             /**
              * @brief Get the text position
              * @return the text position
              */
-            std::pair<std::size_t, std::size_t> getTextPosition() const override final;
+            std::pair<std::size_t, std::size_t> getTextPosition() const override;
             /**
              * @brief Get the text SFML
              * @return the text SFML
              */
-            virtual sf::Text &getTextSFML() const override {};
+            virtual sf::Text &getTextSFML() const = 0;
             /**
              * @brief Get the text SDL
              * @return the text SDL
              */
-            virtual SDL_Texture &getTextSDL() const override {};
+            virtual SDL_Texture &getTextSDL() const = 0;
         protected:
             /**
              * @brief Construct a new ATextBlock object

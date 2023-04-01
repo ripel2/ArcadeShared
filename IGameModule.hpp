@@ -12,12 +12,12 @@
 #include <string>
 
 #include "GameMap.hpp"
-#include "Input.hpp"
+#include "Inputs.hpp"
 #include "IGraphicModule.hpp"
 
 namespace acd {
     typedef enum updateType_e {
-        NONE,
+        UPDATE_NONE,
         PREVGRAPHIC,
         NEXTGRAPHIC,
         PREVGAME,
@@ -64,7 +64,7 @@ namespace acd {
              * @brief Set the Score object
              * @param score the score
              */
-            virtual void setScore(const std::size_t &score) = 0;
+            virtual void setScore(std::size_t score) = 0;
             /**
              * @brief Set the Times object
              * @param times the times
@@ -86,18 +86,18 @@ namespace acd {
              * @param name the name of the entity
              * @param entity the entity
              */
-            virtual void setEntity(const std::string &name, const std::vector<std::pair<std::size_t, std::size_t>> &entity) = 0;
+            virtual void setEntity(const std::string &name, std::pair<std::size_t, std::size_t> &entity) = 0;
 
             /**
              * @brief Get the Map object
-             * @return const GameMap& the map
+             * @return GameMap the map
              */
-            virtual const GameMap &getMap() const = 0;
+            virtual GameMap getMap() const = 0;
             /**
              * @brief Get the Score object
-             * @return const std::size_t& the score
+             * @return std::size_t the score
              */
-            virtual const std::size_t &getScore() const = 0;
+            virtual std::size_t getScore() const = 0;
             /**
              * @brief Get the Times object
              * @return const std::map<std::string, double>& the times
@@ -108,7 +108,7 @@ namespace acd {
              * @param name the name of the time
              * @return const double& the time
              */
-            virtual const double &getTime(const std::string &name) const = 0;
+            virtual double getTime(const std::string &name) const = 0;
             /**
              * @brief Get the Entities object
              * @return const std::map<std::string, std::vector<std::pair<std::size_t, std::size_t>>>& the entities
@@ -119,6 +119,6 @@ namespace acd {
              * @param name the name of the entity
              * @return const std::vector<std::pair<std::size_t, std::size_t>>& the entity
              */
-            virtual const std::vector<std::pair<std::size_t, std::size_t>> &getEntity(const std::string &name) const = 0;
-    }
+            virtual std::vector<std::pair<std::size_t, std::size_t>> const &getEntity(const std::string &name) const = 0;
+    };
 }

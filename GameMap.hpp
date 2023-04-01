@@ -41,11 +41,6 @@ namespace acd {
             */
             void setBlock(std::size_t line, std::size_t column, const IBlock &block);
             /**
-             * @brief Set the texts
-             * @param texts the texts
-             */
-            void setTexts(const std::map<std::string, ITextBlock> &texts);
-            /**
              * @brief Set one text
              * @param name the name of the text
              * @param text the text
@@ -71,11 +66,6 @@ namespace acd {
              */
             IBlock &getBlock(std::size_t line, std::size_t column) const;
             /**
-             * @brief Get the texts
-             * @return std::map<std::string, ITextBlock> & the texts
-             */
-            std::map<std::string, ITextBlock> &getTexts() const;
-            /**
              * @brief Get one text
              * @param name the name of the text
              * @return ITextBlock & the text
@@ -94,7 +84,7 @@ namespace acd {
             void removeText(const std::string &name);
         private:
             std::vector<std::vector<std::reference_wrapper<IBlock>>> _grid;
-            std::map<std::string, ITextBlock> _texts;
+            std::map<std::string, std::reference_wrapper<ITextBlock>> _texts;
             std::size_t _lines;
             std::size_t _columns;
     };

@@ -21,7 +21,7 @@ acd::Input acd::AGraphicModule::getLatestInput() const
     return (_inputs.back());
 }
 
-void acd::AGraphicModule::setRefBlocks(const std::map<std::string, IBlock> &refBlocks)
+void acd::AGraphicModule::setRefBlocks(const std::map<std::string, std::reference_wrapper<IBlock>> &refBlocks)
 {
     _refBlocks = refBlocks;
 }

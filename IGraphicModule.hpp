@@ -41,13 +41,13 @@ namespace acd {
              * @brief Set the Ref Blocks object
              * @param refBlocks the ref blocks
              */
-            virtual void setRefBlocks(const std::map<std::string, IBlock> &refBlocks) = 0;
+            virtual void setRefBlocks(const std::map<std::string, std::reference_wrapper<IBlock>> &refBlocks) = 0;
 
             /**
              * @brief Get the ref blocks object
              * @return std::map<std::string, IBlock>& the ref blocks
              */
-            virtual std::map<std::string, IBlock> &getRefBlocks() const = 0;
+            virtual std::map<std::string, std::reference_wrapper<IBlock>> &getRefBlocks() const = 0;
             /**
              * @brief Get the ref block object
              * @param name the name of the block

@@ -37,3 +37,4 @@ std::pair<std::size_t, std::size_t> acd::ATextBlock::getTextPosition() const
 {
     return (std::make_pair(_line, _column));
 }
+
