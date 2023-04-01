@@ -47,7 +47,7 @@ namespace acd {
              * @brief Get the ref blocks object
              * @return std::map<std::string, IBlock>& the ref blocks
              */
-            virtual std::map<std::string, std::reference_wrapper<IBlock>> &getRefBlocks() const = 0;
+            virtual const std::map<std::string, std::reference_wrapper<IBlock>> &getRefBlocks() const = 0;
             /**
              * @brief Get the ref block object
              * @param name the name of the block

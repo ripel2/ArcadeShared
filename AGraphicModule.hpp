@@ -35,18 +35,23 @@ namespace acd {
              * @return Input the latest input
              */
             Input getLatestInput() const override;
+            /**
+             * @brief Add an input to the queue
+             * @param input the input
+            */
+            void addInput(Input input);
 
             /**
              * @brief Set the Ref Blocks object
              * @param refBlocks the ref blocks
              */
-            void setRefBlocks(const std::map<std::string, std::reference_wrapper<IBlock>> &refBlocks) override;
+            virtual void setRefBlocks(const std::map<std::string, std::reference_wrapper<IBlock>> &refBlocks) = 0;
 
             /**
              * @brief Get the ref blocks object
              * @return std::map<std::string, IBlock>& the ref blocks
              */
-            virtual std::map<std::string, std::reference_wrapper<IBlock>> &getRefBlocks() const = 0;
+            virtual const std::map<std::string, std::reference_wrapper<IBlock>> &getRefBlocks() const = 0;
             /**
              * @brief Get the ref block object
              * @param name the name of the block
@@ -54,7 +59,6 @@ namespace acd {
              */
             virtual IBlock &getRefBlock(const std::string &name) const = 0;
         private:
-            std::map<std::string, std::reference_wrapper<IBlock>> _refBlocks;
             std::queue<Input> _inputs;
     };
 }

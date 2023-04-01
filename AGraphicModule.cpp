@@ -8,9 +8,14 @@
 #include "AGraphicModule.hpp"
 
 acd::AGraphicModule::AGraphicModule()
-    : _refBlocks(), _inputs()
+    : _inputs()
 {
 
+}
+
+void acd::AGraphicModule::addInput(acd::Input input)
+{
+    _inputs.push(input);
 }
 
 acd::Input acd::AGraphicModule::getLatestInput() const
@@ -19,9 +24,4 @@ acd::Input acd::AGraphicModule::getLatestInput() const
         return (acd::KEY_NONE);
     }
     return (_inputs.back());
-}
-
-void acd::AGraphicModule::setRefBlocks(const std::map<std::string, std::reference_wrapper<IBlock>> &refBlocks)
-{
-    _refBlocks = refBlocks;
 }
