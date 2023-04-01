@@ -18,19 +18,29 @@ namespace acd {
             /**
              * @brief Construct a new ATextBlock object
              */
-            ATextBlock() {};
+            ATextBlock()
+                : _foreColor(Color::WHITE), _backColor(Color::WHITE), _text(""), _line(0), _column(0)
+            {};
             /**
              * @brief Destroy the ATextBlock object
              */
             ~ATextBlock() override = default;
 
             /**
+             * @brief Set the color of the block (background)
+             * @param color the color
+             */
+            void setBackColor(Color color) override
+            {
+                _backColor = color;
+            };
+            /**
              * @brief Set the color of the block
              * @param color the color
              */
             void setColor(Color color) override
             {
-                _color = color;
+                _foreColor = color;
             };
             /**
              * @brief Set the text of the block
@@ -50,62 +60,17 @@ namespace acd {
                 _line = line;
                 _column = column;
             }
-            /**
-             * @brief Get the text SFML
-             * @return the text SFML
-             */
-            const sf::Text &getTextSFML() const
+            Color getBackColor() const override
             {
-                return (_textSFML);
-            };
-            /**
-             * @brief Get the text SDL
-             * @return the text SDL
-             */
-            SDL_Texture *getTextSDL() const
-            {
-                return (_textSDL);
+                return (_backColor);
             }
-            /**
-             * @brief Init the text SFML
-             * @param text the text
-             */
-            void initTextSFML(sf::Text text) override
-            {
-                _textSFML = text;
-            };
-            /**
-             * @brief Init the text SDL
-             * @param text the text
-             */
-            void initTextSDL(SDL_Texture *text) override
-            {
-                _textSDL = text;
-            };
-            /**
-             * @brief Set the text SFML
-             * @param text the text
-            */
-            void setTextSFML(sf::Text text)
-            {
-                _textSFML = text;
-            };
-            /**
-             * @brief Set the text SDL
-             * @param text the text
-            */
-            void setTextSDL(SDL_Texture *text)
-            {
-                _textSDL = text;
-            };
-
             /**
              * @brief Get the color of the block
              * @return the color
              */
             Color getColor() const override
             {
-                return (_color);
+                return (_foreColor);
             }
             /**
              * @brief Get the text of the block
@@ -124,11 +89,10 @@ namespace acd {
                 return (std::make_pair(_line, _column));
             }
         private:
-            Color _color;
+            Color _foreColor;
+            Color _backColor;
             std::string _text;
             std::size_t _line;
             std::size_t _column;
-            sf::Text _textSFML;
-            SDL_Texture *_textSDL;
     };
 }

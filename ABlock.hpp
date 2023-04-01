@@ -26,28 +26,14 @@ namespace acd {
             ~ABlock() override = default;
 
             /**
-             * @brief Load texture from file SFML
+             * @brief Set texture paths
              * @param foregroundPath the path to the foreground file
              * @param backgroundPath the path to the background file
              */
-            void loadTexturesSFML(const std::string &foregroundPath, const std::string &backgroundPath) override
+            void setTextures(const std::string &foregroundPath, const std::string &backgroundPath) override
             {
-                _foregroundTextureSFML = std::make_unique<sf::Texture>();
-                _backgroundTextureSFML = std::make_unique<sf::Texture>();
-                _foregroundTextureSFML->loadFromFile(foregroundPath);
-                _backgroundTextureSFML->loadFromFile(backgroundPath);
-            }
-            /**
-             * @brief Load texture from file SDL
-             * @param foregroundPath the path to the foreground file
-             * @param backgroundPath the path to the background file
-             */
-            void loadTexturesSDL(const std::string &foregroundPath, const std::string &backgroundPath) override
-            {
-                _foregroundTextureSDL = std::make_unique<SDL_Texture *>();
-                _backgroundTextureSDL = std::make_unique<SDL_Texture *>();
-                *_foregroundTextureSDL = nullptr;
-                *_backgroundTextureSDL = nullptr;
+                _foregroundPath = foregroundPath;
+                _backgroundPath = backgroundPath;
             }
             /**
              * @brief Set the colors and the character of the block
@@ -60,38 +46,6 @@ namespace acd {
                 _ncursesBackground = background;
                 _ncursesCharacters[0] = characters[0];
                 _ncursesCharacters[1] = characters[1];
-            }
-            /**
-             * @brief Get the foreground texture SFML
-             * @return the foreground texture
-             */
-            std::shared_ptr<sf::Texture> getForegroundTextureSFML() override
-            {
-                return _foregroundTextureSFML;
-            }
-            /**
-             * @brief Get the background texture SFML
-             * @return the background texture
-             */
-            std::shared_ptr<sf::Texture> getBackgroundTextureSFML() override
-            {
-                return _backgroundTextureSFML;
-            }
-            /**
-             * @brief Get the foreground texture SDL
-             * @return the foreground texture
-             */
-            std::shared_ptr<SDL_Texture *> getForegroundTextureSDL() override
-            {
-                return _foregroundTextureSDL;
-            }
-            /**
-             * @brief Get the background texture SDL
-             * @return the background texture
-             */
-            std::shared_ptr<SDL_Texture *> getBackgroundTextureSDL() override
-            {
-                return _backgroundTextureSDL;
             }
             /**
              * @brief Get the foreground color Ncurses
@@ -121,9 +75,7 @@ namespace acd {
             Color _ncursesForeground;
             Color _ncursesBackground;
             char _ncursesCharacters[2];
-            std::shared_ptr<sf::Texture> _foregroundTextureSFML;
-            std::shared_ptr<sf::Texture> _backgroundTextureSFML;
-            std::shared_ptr<SDL_Texture *> _foregroundTextureSDL;
-            std::shared_ptr<SDL_Texture *> _backgroundTextureSDL;
+            std::string _foregroundPath;
+            std::string _backgroundPath;
     };
 }

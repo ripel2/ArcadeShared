@@ -7,9 +7,6 @@
 
 #pragma once
 
-#include <SFML/Graphics.hpp>
-#include <SDL2/SDL.h>
-#include <ncurses.h>
 #include <string>
 #include <functional>
 
@@ -23,6 +20,11 @@ namespace acd {
              */
             virtual ~ITextBlock() = default;
 
+            /**
+             * @brief Set the color of the block (background)
+             * @param color the color
+            */
+            virtual void setBackColor(Color color) = 0;
             /**
              * @brief Set the color of the block
              * @param color the color
@@ -40,39 +42,14 @@ namespace acd {
              */
             virtual void setTextPosition(std::size_t line, std::size_t column) = 0;
             /**
-             * @brief Get the text SFML
-             * @return the text SFML
+             * @brief Get the color of the block (background)
+             * @return the color
              */
-            virtual const sf::Text &getTextSFML() const = 0;
+            virtual Color getBackColor() const = 0;
             /**
-             * @brief Get the text SDL
-             * @return the text SDL
+             * @brief Get the color of the text
+             * @return the color
              */
-            virtual SDL_Texture *getTextSDL() const = 0;
-            /**
-             * @brief Init the text SFML
-             * @param text the text
-             */
-            virtual void initTextSFML(sf::Text text) = 0;
-            /**
-             * @brief Init the text SDL
-             * @param text the text
-             */
-            virtual void initTextSDL(SDL_Texture *text) = 0;
-            /**
-             * @brief Set the text SFML
-             * @param text the text
-            */
-            virtual void setTextSFML(sf::Text text) = 0;
-            /**
-             * @brief Set the text SDL
-             * @param text the text
-            */
-            virtual void setTextSDL(SDL_Texture *text) = 0;
-            /**
-            * @brief Get the color of the block
-            * @return the color
-            */
             virtual Color getColor() const = 0;
             /**
              * @brief Get the text of the block

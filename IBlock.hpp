@@ -23,17 +23,11 @@ namespace acd {
             virtual ~IBlock() = default;
 
             /**
-             * @brief Load texture from file SFML
+             * @brief Set the textures of the block
              * @param foregroundPath the path to the foreground file
              * @param backgroundPath the path to the background file
              */
-            virtual void loadTexturesSFML(const std::string &foregroundPath, const std::string &backgroundPath) = 0;
-            /**
-             * @brief Load texture from file SDL
-             * @param foregroundPath the path to the foreground file
-             * @param backgroundPath the path to the background file
-             */
-            virtual void loadTexturesSDL(const std::string &foregroundPath, const std::string &backgroundPath) = 0;
+            virtual void setTextures(const std::string &foregroundPath, const std::string &backgroundPath) = 0;
             /**
              * @brief Set the colors and the character of the block
              * @param foreground the foreground color
@@ -41,26 +35,6 @@ namespace acd {
              * @param characters the characters
              */
             virtual void loadTexturesNcurses(Color foreground, Color background, char characters[2]) = 0;
-            /**
-             * @brief Get the foreground texture SFML
-             * @return the foreground texture
-             */
-            virtual std::shared_ptr<sf::Texture> getForegroundTextureSFML() = 0;
-            /**
-             * @brief Get the background texture SFML
-             * @return the background texture
-             */
-            virtual std::shared_ptr<sf::Texture> getBackgroundTextureSFML() = 0;
-            /**
-             * @brief Get the foreground texture SDL
-             * @return the foreground texture
-             */
-            virtual std::shared_ptr<SDL_Texture *> getForegroundTextureSDL() = 0;
-            /**
-             * @brief Get the background texture SDL
-             * @return the background texture
-             */
-            virtual std::shared_ptr<SDL_Texture *> getBackgroundTextureSDL() = 0;
             /**
              * @brief Get the foreground color Ncurses
              * @return the foreground color
