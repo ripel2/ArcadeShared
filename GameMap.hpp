@@ -29,11 +29,6 @@ namespace acd {
             ~GameMap() = default;
 
             /**
-             * @brief Set the grid
-             * @param grid the grid
-             */
-            void setGrid(const std::vector<std::vector<std::reference_wrapper<IBlock>>> &grid);
-            /**
              * @brief Set one block of the grid
              * @param line the line
              * @param column the column
@@ -54,10 +49,15 @@ namespace acd {
             void setSize(std::size_t lines, std::size_t columns);
 
             /**
+             * @brief Get the texts
+             * @return std::map<std::string, std::reference_wrapper<ITextBlock>> & the texts
+            */
+            const std::map<std::string, std::reference_wrapper<ITextBlock>> &getTexts() const;
+            /**
              * @brief Get the grid
-             * @return std::vector<std::vector<std::reference_wrapper<IBlock>>> & the grid
+             * @return std::map<std::pair<std::size_t, std::size_t>, std::reference_wrapper<IBlock>> & the grid
              */
-            const std::vector<std::vector<std::reference_wrapper<IBlock>>> &getGrid() const;
+            const std::map<std::pair<std::size_t, std::size_t>, std::reference_wrapper<IBlock>> &getGrid() const;
             /**
              * @brief Get one block of the grid
              * @param line the line
@@ -83,7 +83,7 @@ namespace acd {
              */
             void removeText(const std::string &name);
         private:
-            std::vector<std::vector<std::reference_wrapper<IBlock>>> _grid;
+            std::map<std::pair<std::size_t, std::size_t>, std::reference_wrapper<IBlock>> _grid;
             std::map<std::string, std::reference_wrapper<ITextBlock>> _texts;
             std::size_t _lines;
             std::size_t _columns;
