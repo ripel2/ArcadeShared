@@ -24,9 +24,8 @@ namespace acd {
             /**
              * @brief Update the game
              * @param latestInput the latest input
-             * @param refBlocks the ref blocks
              */
-            virtual updateType_t update(Input latestInput, const IGraphicModule &refBlocks) = 0;
+            virtual updateType_t update(Input latestInput) = 0;
             /**
              * @brief pause the game
              */
