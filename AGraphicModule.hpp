@@ -34,7 +34,7 @@ namespace acd {
              * @brief Get the Latest Input object
              * @return Input the latest input
              */
-            Input getLatestInput() const override;
+            Input getLatestInput() override;
             /**
              * @brief Add an input to the queue
              * @param input the input

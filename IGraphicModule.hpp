@@ -35,7 +35,7 @@ namespace acd {
              * @brief Get the Latest Input object
              * @return Input the latest input
              */
-            virtual Input getLatestInput() const = 0;
+            virtual Input getLatestInput() = 0;
 
             /**
              * @brief Set the Ref Blocks object

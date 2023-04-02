@@ -18,7 +18,7 @@ void acd::AGraphicModule::addInput(acd::Input input)
     _inputs.push(input);
 }
 
-acd::Input acd::AGraphicModule::getLatestInput() const
+acd::Input acd::AGraphicModule::getLatestInput()
 {
     if (_inputs.empty()) {
         return (acd::KEY_NONE);
