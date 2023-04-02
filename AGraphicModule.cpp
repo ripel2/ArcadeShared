@@ -23,5 +23,7 @@ acd::Input acd::AGraphicModule::getLatestInput() const
     if (_inputs.empty()) {
         return (acd::KEY_NONE);
     }
-    return (_inputs.back());
+    Input input = _inputs.front();
+    _inputs.pop();
+    return (input);
 }
