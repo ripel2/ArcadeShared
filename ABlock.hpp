@@ -19,7 +19,15 @@ namespace acd {
             /**
              * @brief Construct a new ABlock object
              */
-            ABlock() = default;
+            ABlock()
+            {
+                _ncursesForeground = Color::NONE;
+                _ncursesBackground = Color::NONE;
+                _ncursesCharacters[0] = ' ';
+                _ncursesCharacters[1] = ' ';
+                _foregroundPath = "";
+                _backgroundPath = "";
+            }
             /**
              * @brief Destroy the ABlock object
              */
