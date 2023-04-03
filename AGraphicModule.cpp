@@ -21,7 +21,7 @@ void acd::AGraphicModule::addInput(acd::Input input)
 acd::Input acd::AGraphicModule::getLatestInput()
 {
     if (_inputs.empty()) {
-        return (acd::KEY_NONE);
+        return (acd::KEY__NONE);
     }
     Input input = _inputs.front();
     _inputs.pop();

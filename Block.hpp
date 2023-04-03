@@ -2,24 +2,22 @@
 ** EPITECH PROJECT, 2023
 ** ArcadeShared [WSL : Ubuntu]
 ** File description:
-** ABlock
+** Block
 */
 
 #pragma once
 
-#include "IBlock.hpp"
+#include <string>
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <SFML/Graphics.hpp>
+#include "Colors.hpp"
 
 namespace acd {
-    class ABlock : public IBlock {
+    class Block {
         public:
             /**
-             * @brief Construct a new ABlock object
+             * @brief Construct a new Block object
              */
-            ABlock()
+            Block()
             {
                 _ncursesForeground = Color::NONE;
                 _ncursesBackground = Color::NONE;
@@ -29,16 +27,16 @@ namespace acd {
                 _backgroundPath = "";
             }
             /**
-             * @brief Destroy the ABlock object
+             * @brief Destroy the Block object
              */
-            ~ABlock() override = default;
+            ~Block() = default;
 
             /**
              * @brief Set texture paths
              * @param foregroundPath the path to the foreground file
              * @param backgroundPath the path to the background file
              */
-            void setTextures(const std::string &foregroundPath, const std::string &backgroundPath) override
+            void setTextures(const std::string &foregroundPath, const std::string &backgroundPath)
             {
                 _foregroundPath = foregroundPath;
                 _backgroundPath = backgroundPath;
@@ -49,7 +47,7 @@ namespace acd {
              * @param background the background color
              * @param characters the characters
              */
-            void loadTexturesNcurses(Color foreground, Color background, char characters[2]) override {
+            void loadTexturesNcurses(Color foreground, Color background, char characters[2]) {
                 _ncursesForeground = foreground;
                 _ncursesBackground = background;
                 _ncursesCharacters[0] = characters[0];
@@ -59,7 +57,7 @@ namespace acd {
              * @brief Get the foreground color Ncurses
              * @return the foreground color
              */
-            Color getForegroundColorNcurses() override
+            Color getForegroundColorNcurses()
             {
                 return _ncursesForeground;
             }
@@ -67,7 +65,7 @@ namespace acd {
              * @brief Get the background color Ncurses
              * @return the background color
              */
-            Color getBackgroundColorNcurses() override
+            Color getBackgroundColorNcurses()
             {
                 return _ncursesBackground;
             }
@@ -75,7 +73,7 @@ namespace acd {
              * @brief Get the characters Ncurses
              * @return the characters
              */
-            char *getCharactersNcurses() override
+            char *getCharactersNcurses()
             {
                 return _ncursesCharacters;
             }
@@ -83,7 +81,7 @@ namespace acd {
              * @brief Get the foreground path
              * @return the foreground path
             */
-            const std::string &getForegroundPath() const override
+            const std::string &getForegroundPath() const
             {
                 return _foregroundPath;
             }
@@ -91,7 +89,7 @@ namespace acd {
              * @brief Get the background path
              * @return the background path
              */
-            const std::string &getBackgroundPath() const override
+            const std::string &getBackgroundPath() const
             {
                 return _backgroundPath;
             }
@@ -99,7 +97,7 @@ namespace acd {
              * @brief Set the foreground path
              * @param foregroundPath the foreground path
             */
-            void setForegroundPath(const std::string &foregroundPath) override
+            void setForegroundPath(const std::string &foregroundPath)
             {
                 _foregroundPath = foregroundPath;
             }
@@ -107,7 +105,7 @@ namespace acd {
              * @brief Set the background path
              * @param backgroundPath the background path
              */
-            void setBackgroundPath(const std::string &backgroundPath) override
+            void setBackgroundPath(const std::string &backgroundPath)
             {
                 _backgroundPath = backgroundPath;
             }

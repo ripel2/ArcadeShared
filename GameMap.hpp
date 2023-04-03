@@ -8,9 +8,11 @@
 #pragma once
 
 #include <utility>
+#include <map>
+#include <functional>
 
-#include "IBlock.hpp"
-#include "ITextBlock.hpp"
+#include "Block.hpp"
+#include "TextBlock.hpp"
 
 namespace acd {
     class GameMap {
@@ -34,13 +36,13 @@ namespace acd {
              * @param column the column
              * @param block the block
             */
-            void setBlock(std::size_t line, std::size_t column, const IBlock &block);
+            void setBlock(std::size_t line, std::size_t column, const Block &block);
             /**
              * @brief Set one text
              * @param name the name of the text
              * @param text the text
              */
-            void setText(const std::string &name, const ITextBlock &text);
+            void setText(const std::string &name, const TextBlock &text);
             /**
              * @brief Set the grid size
              * @param lines the number of lines
@@ -50,27 +52,27 @@ namespace acd {
 
             /**
              * @brief Get the texts
-             * @return std::map<std::string, std::reference_wrapper<ITextBlock>> & the texts
+             * @return std::map<std::string, std::reference_wrapper<TextBlock>> & the texts
             */
-            const std::map<std::string, std::reference_wrapper<ITextBlock>> &getTexts() const;
+            const std::map<std::string, std::reference_wrapper<TextBlock>> &getTexts() const;
             /**
              * @brief Get the grid
-             * @return std::map<std::pair<std::size_t, std::size_t>, std::reference_wrapper<IBlock>> & the grid
+             * @return std::map<std::pair<std::size_t, std::size_t>, std::reference_wrapper<Block>> & the grid
              */
-            const std::map<std::pair<std::size_t, std::size_t>, std::reference_wrapper<IBlock>> &getGrid() const;
+            const std::map<std::pair<std::size_t, std::size_t>, std::reference_wrapper<Block>> &getGrid() const;
             /**
              * @brief Get one block of the grid
              * @param line the line
              * @param column the column
-             * @return IBlock & the block
+             * @return Block & the block
              */
-            IBlock &getBlock(std::size_t line, std::size_t column) const;
+            Block &getBlock(std::size_t line, std::size_t column) const;
             /**
              * @brief Get one text
              * @param name the name of the text
-             * @return ITextBlock & the text
+             * @return TextBlock & the text
              */
-            ITextBlock &getText(const std::string &name) const;
+            TextBlock &getText(const std::string &name) const;
             /**
              * @brief Get the grid size
              * @return std::pair<std::size_t, std::size_t> & the size
@@ -88,8 +90,8 @@ namespace acd {
              */
             void removeText(const std::string &name);
         private:
-            std::map<std::pair<std::size_t, std::size_t>, std::reference_wrapper<IBlock>> _grid;
-            std::map<std::string, std::reference_wrapper<ITextBlock>> _texts;
+            std::map<std::pair<std::size_t, std::size_t>, std::reference_wrapper<Block>> _grid;
+            std::map<std::string, std::reference_wrapper<TextBlock>> _texts;
             std::size_t _lines;
             std::size_t _columns;
     };

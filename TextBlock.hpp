@@ -2,35 +2,35 @@
 ** EPITECH PROJECT, 2023
 ** ArcadeShared [WSL : Ubuntu]
 ** File description:
-** ATextBlock
+** TextBlock
 */
 
 #pragma once
 
-#include "ITextBlock.hpp"
+#include <string>
+#include <utility>
 
-#include <SDL2/SDL.h>
-#include <SFML/Graphics.hpp>
+#include "Colors.hpp"
 
 namespace acd {
-    class ATextBlock : public ITextBlock {
+    class TextBlock {
         public:
             /**
-             * @brief Construct a new ATextBlock object
+             * @brief Construct a new TextBlock object
              */
-            ATextBlock()
+            TextBlock()
                 : _foreColor(Color::WHITE), _backColor(Color::WHITE), _text(""), _line(0), _column(0)
             {};
             /**
-             * @brief Destroy the ATextBlock object
+             * @brief Destroy the TextBlock object
              */
-            ~ATextBlock() override = default;
+            ~TextBlock() = default;
 
             /**
              * @brief Set the color of the block (background)
              * @param color the color
              */
-            void setBackColor(Color color) override
+            void setBackColor(Color color)
             {
                 _backColor = color;
             };
@@ -38,7 +38,7 @@ namespace acd {
              * @brief Set the color of the block
              * @param color the color
              */
-            void setColor(Color color) override
+            void setColor(Color color)
             {
                 _foreColor = color;
             };
@@ -46,7 +46,7 @@ namespace acd {
              * @brief Set the text of the block
              * @param text the text
              */
-            void setText(const std::string &text) override
+            void setText(const std::string &text)
             {
                 _text = text;
             };
@@ -55,12 +55,12 @@ namespace acd {
              * @param line the line
              * @param column the column
              */
-            void setTextPosition(std::size_t line, std::size_t column) override
+            void setTextPosition(std::size_t line, std::size_t column)
             {
                 _line = line;
                 _column = column;
             }
-            Color getBackColor() const override
+            Color getBackColor() const
             {
                 return (_backColor);
             }
@@ -68,7 +68,7 @@ namespace acd {
              * @brief Get the color of the block
              * @return the color
              */
-            Color getColor() const override
+            Color getColor() const
             {
                 return (_foreColor);
             }
@@ -76,7 +76,7 @@ namespace acd {
              * @brief Get the text of the block
              * @return the text
              */
-            const std::string &getText() const override
+            const std::string &getText() const
             {
                 return (_text);
             }
@@ -84,7 +84,7 @@ namespace acd {
              * @brief Get the text position
              * @return the text position
              */
-            std::pair<std::size_t, std::size_t> getTextPosition() const override
+            std::pair<std::size_t, std::size_t> getTextPosition() const
             {
                 return (std::make_pair(_line, _column));
             }

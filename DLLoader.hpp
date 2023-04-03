@@ -12,15 +12,6 @@
 #include <memory>
 #include <exception>
 
-#include "IGraphicModule.hpp"
-#include "IGameModule.hpp"
-#include "AGraphicModule.hpp"
-#include "AGameModule.hpp"
-#include "IBlock.hpp"
-#include "ITextBlock.hpp"
-#include "ATextBlock.hpp"
-#include "ABlock.hpp"
-
 namespace acd {
     template<typename T>
     class DLLoader {
