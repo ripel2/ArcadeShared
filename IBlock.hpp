@@ -50,5 +50,25 @@ namespace acd {
              * @return the characters
              */
             virtual char *getCharactersNcurses() = 0;
+            /**
+             * @brief Get the foreground path
+             * @return the foreground path
+            */
+            virtual const std::string &getForegroundPath() const = 0;
+            /**
+             * @brief Get the background path
+             * @return the background path
+             */
+            virtual const std::string &getBackgroundPath() const = 0;
+            /**
+             * @brief Set the foreground path
+             * @param foregroundPath the foreground path
+            */
+            virtual void setForegroundPath(const std::string &foregroundPath) = 0;
+            /**
+             * @brief Set the background path
+             * @param backgroundPath the background path
+             */
+            virtual void setBackgroundPath(const std::string &backgroundPath) = 0;
     };
 }

@@ -79,6 +79,38 @@ namespace acd {
             {
                 return _ncursesCharacters;
             }
+            /**
+             * @brief Get the foreground path
+             * @return the foreground path
+            */
+            const std::string &getForegroundPath() const override
+            {
+                return _foregroundPath;
+            }
+            /**
+             * @brief Get the background path
+             * @return the background path
+             */
+            const std::string &getBackgroundPath() const override
+            {
+                return _backgroundPath;
+            }
+            /**
+             * @brief Set the foreground path
+             * @param foregroundPath the foreground path
+            */
+            void setForegroundPath(const std::string &foregroundPath) override
+            {
+                _foregroundPath = foregroundPath;
+            }
+            /**
+             * @brief Set the background path
+             * @param backgroundPath the background path
+             */
+            void setBackgroundPath(const std::string &backgroundPath) override
+            {
+                _backgroundPath = backgroundPath;
+            }
         private:
             Color _ncursesForeground;
             Color _ncursesBackground;
