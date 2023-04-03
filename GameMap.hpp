@@ -76,7 +76,12 @@ namespace acd {
              * @return std::pair<std::size_t, std::size_t> & the size
              */
             std::pair<std::size_t, std::size_t> getSize() const;
-
+            /**
+             * @brief Remove one block of the grid
+             * @param line the line
+             * @param column the column
+             */
+            void removeBlock(std::size_t line, std::size_t column);
             /**
              * @brief Remove one text
              * @param name the name of the text

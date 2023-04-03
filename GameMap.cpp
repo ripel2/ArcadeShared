@@ -66,6 +66,13 @@ acd::ITextBlock &acd::GameMap::getText(const std::string &name) const
     return _texts.at(name).get();
 }
 
+void acd::GameMap::removeBlock(std::size_t line, std::size_t column)
+{
+    std::pair<std::size_t, std::size_t> pos = std::make_pair(line, column);
+
+    _grid.erase(pos);
+}
+
 void acd::GameMap::removeText(const std::string &name)
 {
     _texts.erase(name);
