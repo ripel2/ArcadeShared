@@ -39,7 +39,7 @@ namespace acd {
              * @brief Add an input to the queue
              * @param input the input
             */
-            void addInput(Input input);
+            void addInput(Input input) override;
         private:
             std::queue<Input> _inputs;
     };

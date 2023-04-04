@@ -36,5 +36,10 @@ namespace acd {
              * @return Input the latest input
              */
             virtual Input getLatestInput() = 0;
+            /**
+             * @brief Add an input to the queue
+             * @param input the input
+            */
+            virtual void addInput(Input input) = 0;
     };
 }
