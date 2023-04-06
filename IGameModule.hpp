@@ -22,6 +22,7 @@ namespace acd {
         NEXTGRAPHIC,
         PREVGAME,
         NEXTGAME,
+        GOTOMENU,
         SFML,
         NCURSES,
         SDL,
