@@ -7,20 +7,20 @@
 
 #include "Error.hpp"
 
-Error::Error()
+acd::Error::Error()
 {
 }
 
-Error::~Error()
+acd::Error::~Error()
 {
 }
 
-const char *Error::ErrorType::what() const noexcept
+const char *acd::Error::ErrorType::what() const noexcept
 {
     return (std::strerror(errno));
 }
 
-const char *Error::OutOfRange::what() const noexcept
+const char *acd::Error::OutOfRange::what() const noexcept
 {
     return ("Out of range.");
 }

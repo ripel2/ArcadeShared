@@ -12,6 +12,8 @@
 #include <memory>
 #include <exception>
 
+#include "Error.hpp"
+
 namespace acd {
     template<typename T>
     class DLLoader {
@@ -24,12 +26,12 @@ namespace acd {
             DLLoader(const std::string &path, const std::string &entrypoint)
             : _handle(dlopen(path.c_str(), RTLD_LAZY)) {
             if (!_handle) {
-                throw Error("cannot load library: " + std::string(dlerror()));
+                throw DLLoaderError("cannot load library: " + std::string(dlerror()));
             }
             _entrypoint = reinterpret_cast<std::unique_ptr<T> (*)()>(dlsym(_handle, entrypoint.c_str()));
             if (!_entrypoint) {
                 dlclose(_handle);
-                throw Error("cannot load symbol entrypoint: " + std::string(dlerror()));
+                throw DLLoaderError("cannot load symbol entrypoint: " + std::string(dlerror()));
             }
             }
             /**
@@ -41,9 +43,9 @@ namespace acd {
              * @return std::unique_ptr<T>
              */
             std::unique_ptr<T> getInstance() const {return _entrypoint();};
-            class Error : public std::exception {
+            class DLLoaderError : public acd::Error::ErrorType {
                 public:
-                    Error(const std::string &message) : _message(message) {};
+                    DLLoaderError(const std::string &message) : _message(message) {};
                     const char *what() const noexcept override {return _message.c_str();};
                 private:
                     std::string _message;

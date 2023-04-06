@@ -11,20 +11,22 @@
 #include <iostream>
 #include <cstring>
 
-class Error {
-    public:
-        Error();
-        ~Error();
+namespace acd {
+    class Error {
+        public:
+            Error();
+            ~Error();
 
-        class ErrorType : public std::exception {
-            public:
-                const char *what() const noexcept override;
-        };
-        class OutOfRange : public std::exception {
-            public:
-                const char *what() const noexcept override;
-        };
+            class ErrorType : public std::exception {
+                public:
+                    const char *what() const noexcept override;
+            };
+            class OutOfRange : public std::exception {
+                public:
+                    const char *what() const noexcept override;
+            };
 
-    protected:
-    private:
-};
+        protected:
+        private:
+    };
+}
