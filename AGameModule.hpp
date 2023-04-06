@@ -76,7 +76,7 @@ namespace acd {
              * @brief Get the Map object
              * @return const GameMap& the map
              */
-            GameMap getMap() const override;
+            const GameMap &getMap() const override;
             /**
              * @brief Get the Score object
              * @return std::size_t the score

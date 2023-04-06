@@ -91,7 +91,7 @@ namespace acd {
              * @brief Get the Map object
              * @return GameMap the map
              */
-            virtual GameMap getMap() const = 0;
+            virtual const GameMap &getMap() const = 0;
             /**
              * @brief Get the Score object
              * @return std::size_t the score
