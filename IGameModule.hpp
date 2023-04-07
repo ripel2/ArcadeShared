@@ -27,7 +27,8 @@ namespace acd {
         NCURSES,
         SDL,
         NIBBLER,
-        SNAKE
+        SNAKE,
+        EXIT
     } updateType_t;
 
     class IGameModule {
