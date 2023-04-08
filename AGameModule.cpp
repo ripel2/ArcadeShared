@@ -44,7 +44,7 @@ void acd::AGameModule::setEntity(const std::string &name, std::pair<std::size_t,
     _entities[name].push_back(entity);
 }
 
-const acd::GameMap &acd::AGameModule::getMap() const
+acd::GameMap &acd::AGameModule::getMap()
 {
     return (_map);
 }
